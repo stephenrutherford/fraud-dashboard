@@ -1,6 +1,6 @@
 # Fraud Dashboard
 A data analysis of cats available for adoption using Python web scraping, PostgreSQL, and Pandas.
-![](readme.PNG)
+![](promo_full.png)
 
 ## Overview
 A fraud metrics and sales dashboard created with Next.js. Designed as a data visualization tool using charts and tables.
