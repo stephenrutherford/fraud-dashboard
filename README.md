@@ -1,5 +1,7 @@
 # Fraud Dashboard
+![Live Demo](promo_full.png)
 A data analysis of cats available for adoption using Python web scraping, PostgreSQL, and Pandas.
+
 ![](promo_full.png)
 
 ## Overview
