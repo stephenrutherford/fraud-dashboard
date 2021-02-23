@@ -1,65 +1,118 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head"
+import {
+	Flex,
+	Heading,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	Text,
+	Box,
+	Grid,
+	Button,
+	useColorMode,
+	Divider,
+	Stack,
+	Stat,
+	Spacer,
+} from "@chakra-ui/core"
+
+//Icons
+import { ChevronDownIcon } from "@chakra-ui/icons"
+
+// Components
+import Sidebar from "../components/Sidebar"
+import Appbar from "../components/Appbar"
+import Footer from "../components/Footer"
+import React, { useState } from "react"
+import ManualReviewTable from "../components/ManualReviewTable"
+import FraudStats from "../components/FraudStats"
+import DeclinedChart from "../components/DeclinedChart"
+import ManualReviewChart from "../components/ManualReviewChart"
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+	const { colorMode, toggleColorMode } = useColorMode()
+	const bgColor = { light: "light.300", dark: "dark.950" }
+	const color = { light: "black", dark: "white" }
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+	return (
+		<div>
+			<Head>
+				<title>Dashboard</title>
+				<link rel='icon' href='/favicon.ico' />
+			</Head>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+			<main>
+				{/* Container */}
+				<Flex w='100vw' maxH='100vh'>
+					{/* Left Sidebar */}
+					<Sidebar />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+					{/* Right Content */}
+					<Flex
+						flex='1'
+						flexDirection='column'
+						bg={bgColor[colorMode]}
+						color={color[colorMode]}
+						overflow='scroll'
+					>
+						{/* AppBar */}
+						<Appbar />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+						{/* Header */}
+						<Flex mx='6' mt='4' justifyContent='flex-start'>
+							<Stack spacing='2' isInline alignItems='baseline'>
+								<Heading as='h2' size='lg'>
+									Fraud Dashboard
+								</Heading>
+								<Text fontSize='sm'>Monday, 26th October 2020</Text>
+							</Stack>
+							<Spacer />
+							<Flex>
+								{/* <Flex justifyContent='flex-end' ml='auto'> */}
+								<Menu>
+									<MenuButton as={Button} size='sm' variantColor='green'>
+										Today
+										<ChevronDownIcon w={6} h={6} />
+									</MenuButton>
+									<MenuList>
+										<MenuItem>Today</MenuItem>
+										<MenuItem>Last 7 Days</MenuItem>
+										<MenuItem>Last 30 Days</MenuItem>
+										<MenuItem>Last 365 Days</MenuItem>
+									</MenuList>
+								</Menu>
+							</Flex>
+						</Flex>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+						<Divider mx='6' my='4' />
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+						{/* Top Row (Grid Panels) */}
+						<FraudStats />
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+						{/* Mid Row Content */}
+						<Flex mx='6' my='4' flexDirection='row'>
+							{/* Graph */}
+							<DeclinedChart />
+							{/* Pie Chart */}
+							<ManualReviewChart />
+						</Flex>
+
+						{/* Bottom Row */}
+						<Flex mx='6' my='4'>
+							{/* Table */}
+							<ManualReviewTable />
+						</Flex>
+
+						{/* Footer */}
+						<Footer />
+
+						{/* End Right Content */}
+					</Flex>
+
+					{/* End Container */}
+				</Flex>
+			</main>
+		</div>
+	)
 }
