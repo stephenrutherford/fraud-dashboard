@@ -1,5 +1,6 @@
 # Fraud Dashboard
-![Live Demo](promo_full.png)
+[Live Demo](https://fraud-dashboard.vercel.app/)
+
 A data analysis of cats available for adoption using Python web scraping, PostgreSQL, and Pandas.
 
 ![](promo_full.png)
