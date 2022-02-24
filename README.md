@@ -1,5 +1,4 @@
 # Fraud Dashboard
-[Live Demo](https://app.powerbi.com/view?r=eyJrIjoiNDgyZGEzMDUtZWQyNi00NjE0LWFkZjMtMTVmYWNhZjMzY2QzIiwidCI6ImZkZWE4MWM2LWE1M2QtNDg5My05YzE2LTdjMGZhYzZmODUxNiJ9)
 
 ![](fd_promo.PNG)
 
@@ -14,3 +13,5 @@ The full features include:
 * Bespoke Date Slicer
 * Dynamically updating visuals - Cards, Charts, Geo Map, and Matrix Table
 * Custom data model with multiple table to table relationships
+
+🚀 [Live Demo](https://app.powerbi.com/view?r=eyJrIjoiNDgyZGEzMDUtZWQyNi00NjE0LWFkZjMtMTVmYWNhZjMzY2QzIiwidCI6ImZkZWE4MWM2LWE1M2QtNDg5My05YzE2LTdjMGZhYzZmODUxNiJ9)
